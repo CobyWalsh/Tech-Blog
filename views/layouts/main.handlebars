@@ -11,7 +11,7 @@
 
 <body>
     <header>
-      <h1 style='font-weight: bold;'>Tech Bannter</h1>
+      <h1 style='font-weight: bold;'>Tech Banter</h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
@@ -25,19 +25,27 @@
             {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
+   <main>
+            {{{ body }}}
     </main>
-    <footer>
-      
+
+    <footer class="footer rows pb-2">
+        <div class="row-is-full content has-text-centered">
+            <p>
+            <a href="/">homepage</a>{{#if loggedIn}} | 
+            <a href="/dashboard/">dashboard</a> | 
+            <a href="/dashboard/create/">create new post</a>
+            {{else}}
+             | <a href="/login/">login</a>
+            {{/if}}
+            </p>
+        </div>
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
