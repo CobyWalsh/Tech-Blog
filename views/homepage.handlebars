@@ -1,9 +1,11 @@
 <h1>HEllo</h1>
-{{!-- {{#each posts as |post|}}
-
-{{> post-info post }}
-</div>
-
-{{else}}
-<h6 class="pb-4 has-text-centered is-italic">there are currently no posts</h6>
-{{/each}} --}}
+module.exports = {
+  format_date: (date) => {
+    {{!-- Format date as MM/DD/YYYY --}}
+    return date.toLocaleDateString();
+  },
+  format_amount: (amount) => {
+    {{!-- format large numbers with commas --}}
+    return parseInt(amount).toLocaleString();
+  }
+}
