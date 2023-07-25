@@ -11,11 +11,11 @@ router.get('/', async (req, res) => {
     //       model: User,
     //       attributes: ['name'],
     //     },
-            {
-                model: Comment,
-                attributes: []
-            }
-    //   ],
+    //         {
+    //             model: Comment,
+    //             attributes: []
+    //         }
+    // //   ],
     // });
 
     // Serialize data so the template can read it
