@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
+    //"blog_db", "root", "rootroot",
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
