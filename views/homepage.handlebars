@@ -1,11 +1,17 @@
-<h1>HEllo</h1>
-module.exports = {
-  format_date: (date) => {
-    {{!-- Format date as MM/DD/YYYY --}}
-    return date.toLocaleDateString();
-  },
-  format_amount: (amount) => {
-    {{!-- format large numbers with commas --}}
-    return parseInt(amount).toLocaleString();
-  }
-}
+<!-- Loop over each object in the projects array -->
+{{#each blogPost as |blogPost| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      <a href="/blogPost/{{blogPost.id}}">{{blogPost.name}}</a>
+    </h2>
+    <p>Created by {{blogPost.user.name}} on {{format_date blogPost.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{blogPost.description}}
+    </p>
+  </div>
+</div>
+{{/each}}
