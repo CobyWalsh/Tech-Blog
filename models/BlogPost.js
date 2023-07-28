@@ -31,13 +31,7 @@ BlogPost.init(
                 key: 'id',
             },
         },
-        // comments: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'comment',
-        //         key: 'id',
-        //     },
-        // },
+      
     },
     {
         sequelize,
