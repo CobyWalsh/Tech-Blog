@@ -1,4 +1,6 @@
+console.log("BEFORE");
 const sequelize = require('../config/connection');
+console.log(":AFTER");
 const { User, blogPost } = require('../models');
 
 const userData = require('./userData.json');

@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,6 +9,12 @@ const PORT = process.env.PORT || 3000;
 const sequelize = require('./config/connection');
 
 const hbs = exphbs.create({});
+
+app.use(session({
+  secret: 'rootroot',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
