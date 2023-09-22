@@ -1,0 +1,21 @@
+<div class="text-center">
+  <h2>{{name}}</h2>
+  <p>{{{get_emoji}}}</p>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+<!-- Add a new blog post form -->
+<div class="new-blog-form">
+  <h3>Create a New Blog Post</h3>
+  <form id="blog-form">
+    <div class="form-group">
+      <label for="blog-title">Title:</label>
+      <input type="text" class="form-control" id="blog-title" placeholder="Enter the blog title" required>
+    </div>
+    <div class="form-group">
+      <label for="blog-content">Content:</label>
+      <textarea class="form-control" id="blog-content" rows="4" placeholder="Enter the blog content" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Blog Post</button>
+  </form>
+</div>
