@@ -48,7 +48,8 @@ router.get('/blogpost/:id', async (req, res) => {
     const blogPost = blogPostData.get({ plain: true });
 
     res.render('blogPost', {
-      ...blogPost,
+      title: blogPost.title,       // Adjust this line according to your data model
+      content: blogPost.content,
       logged_in: req.session.logged_in
     });
   } catch (err) {

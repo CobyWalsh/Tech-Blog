@@ -37,12 +37,53 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+// Function to create a new blog post
+document.addEventListener('DOMContentLoaded', () => {
+const createBlogPost = async (title, content) => {
+  try {
+    const response = await fetch('/api/blogposts', {
+      method: 'POST',
+      body: JSON.stringify({ title, content }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.reload(); // Refresh the page after creating the blog post
+    } else {
+      alert('Failed to create blog post');
+    }
+  } catch (error) {
+    console.error('Error creating blog post:', error);
+  }
+};
+
+  // Event listener for the new blog post form submission
+  const blogForm = document.querySelector('#blog-form');
+  if (blogForm) {
+    blogForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const title = document.querySelector('#blog-title').value.trim();
+      const content = document.querySelector('#blog-content').value.trim();
+
+      if (title && content) {
+        createBlogPost(title, content);
+      } else {
+        alert('Please fill out both title and content fields.');
+      }
+    });
+  }
+});
+
+
   // const buttonElement 
-  document
-    .querySelector('.new-project-form')
-    .addEventListener('submit', newFormHandler);
+  // document
+  //   .querySelector('.new-project-form')
+  //   .addEventListener('submit', newFormHandler);
   
-  document
-    .querySelector('.project-list')
-    .addEventListener('click', delButtonHandler);
+  // document
+  //   .querySelector('.project-list')
+  //   .addEventListener('click', delButtonHandler);
   
