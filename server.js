@@ -30,6 +30,20 @@ app.use('/', homeRoutes);
 app.use(require('./controllers'));
 // app.use(require('./api'));
 
+// Define a route for logging out
+app.get('/logout', (req, res) => {
+  // Destroy the session to log the user out
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      res.status(500).json({ message: 'Server error' });
+    } else {
+      // Redirect the user to the homepage after logout
+      res.redirect('/');
+    }
+  });
+});
+
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
