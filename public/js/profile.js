@@ -87,3 +87,4 @@ const createBlogPost = async (title, content) => {
   //   .querySelector('.project-list')
   //   .addEventListener('click', delButtonHandler);
   
+  
