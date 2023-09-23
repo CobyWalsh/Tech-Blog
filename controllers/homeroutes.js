@@ -112,5 +112,11 @@ router.get('/dashboard', async (req, res) => {
 }
 }); 
 
+router.get('/dashboard/create', withAuth, (req, res) => {
+  // Render the 'createPost.handlebars' template
+  res.render('createPost', {
+      logged_in: req.session.logged_in
+  });
+});
 
 module.exports = router;
