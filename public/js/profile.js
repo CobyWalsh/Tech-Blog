@@ -77,14 +77,4 @@ const createBlogPost = async (title, content) => {
   }
 });
 
-
-  // const buttonElement 
-  // document
-  //   .querySelector('.new-project-form')
-  //   .addEventListener('submit', newFormHandler);
-  
-  // document
-  //   .querySelector('.project-list')
-  //   .addEventListener('click', delButtonHandler);
-  
   

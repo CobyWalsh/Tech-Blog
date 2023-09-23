@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
     const createPostForm = document.querySelector('#post-form');
     const postTitleInput = document.querySelector('#post-title');
     const postContentInput = document.querySelector('#post-content');
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       if (title && content) {
         try {
-          const response = await fetch('/api/blogPostsRoutes', {
+          const response = await fetch('/controllers/blogPostsRoutes', {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: {
@@ -34,5 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Please fill out both title and content fields.');
       }
     });
-  });
+
   
