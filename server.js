@@ -23,6 +23,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Import and use homeRoutes
+const homeRoutes = require('./controllers/homeRoutes'); // Adjust the path as needed
+app.use('/', homeRoutes);
+
 app.use(require('./controllers'));
 // app.use(require('./api'));
 

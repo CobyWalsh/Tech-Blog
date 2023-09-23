@@ -95,4 +95,22 @@ router.get('/profile', (req, res) => {
   res.render('profile');
 })
 
+router.get('/dashboard', async (req, res) => {
+  try {
+    // Fetch the blog posts (adjust this based on your data model)
+    const blogPostData = await BlogPost.findAll(); // You may need to add include for User data
+
+    // Serialize data so the template can read it
+    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
+    // Render the 'dashboard.handlebars' template and pass the blog post data
+  res.render('dashboard',  {
+    blogPosts,
+    logged_in: req.session.logged_in
+  });
+} catch (err) {
+  res.status(500).json(err);
+}
+}); 
+
+
 module.exports = router;

@@ -8,5 +8,13 @@
 <body>
     <h1>Welcome to the Dashboard</h1>
     <!-- Add your dashboard content here -->
+     <div class="blog-posts">
+        {{#each blogPosts}}
+            <div class="blog-post">
+                <h2>{{blog_title}}</h2>
+                <p>{{blog_text}}</p>
+            </div>
+        {{/each}}
+    </div>
 </body>
 </html>
