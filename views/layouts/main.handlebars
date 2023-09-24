@@ -17,13 +17,13 @@
         {{#if loggedIn}}
             <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
             <a href="/dashboard" class="navbar-item is-hoverable pt-1">dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
+            <a href="/dashboard" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
             {{else}}
             <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
             <a href="/login" class="button is-primary">login</a>
             {{/if}}
-      </nav>
-    </header>
+      </nav> 
+ </header>
    <main>
             {{{ body }}}
     </main>
@@ -32,8 +32,8 @@
         <div class="row-is-full content has-text-centered">
             <p>
           
-            <a href="/dashboard/">dashboard</a> | 
-            <a href="/dashboard/create/">create new post</a>
+            <a href="/dashboard">dashboard</a> | 
+            <a href="/createPost">create new post</a>
             <a href="/logout">Logout</a>
 
             </p>
@@ -46,4 +46,4 @@
 {{/if}}
 </body>
 
-</html>
+</html> 

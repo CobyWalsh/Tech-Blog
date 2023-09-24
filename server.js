@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-
+const routes = require('./controllers');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -22,14 +22,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Import and use homeRoutes
-const homeRoutes = require('./controllers/homeRoutes'); // Adjust the path as needed
-app.use('/', homeRoutes);
-
-app.use(require('./controllers'));
-// app.use(require('./api'));
-
+app.use(routes);
 // Define a route for logging out
 app.get('/logout', (req, res) => {
   // Destroy the session to log the user out
@@ -46,4 +39,16 @@ app.get('/logout', (req, res) => {
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
+  console.log(JSON.stringify(availableRoutes(), null, 2));
 });
+
+function availableRoutes() {
+  return app._router.stack
+    .filter(r => r.route)
+    .map(r => {
+      return {
+        method: Object.keys(r.route.methods)[0].toUpperCase(),
+        path: r.route.path
+      };
+    });
+}

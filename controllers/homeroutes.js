@@ -80,7 +80,7 @@ router.get('/blogPost', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/blogPost');
+    res.redirect('/createPost');
     return;
   }
 
@@ -92,7 +92,7 @@ router.get('/profile', (req, res) => {
     res.redirect('/login');
     return;
   }
-  res.render('profile');
+  res.render('createPost');
 })
 
 router.get('/dashboard', async (req, res) => {
@@ -112,7 +112,7 @@ router.get('/dashboard', async (req, res) => {
 }
 }); 
 
-router.get('/dashboard/create', withAuth, (req, res) => {
+router.get('/createPost', withAuth, (req, res) => {
   // Render the 'createPost.handlebars' template
   res.render('createPost', {
       logged_in: req.session.logged_in

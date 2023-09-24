@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>Welcome to the Dashboard</h1>
-    <!-- Add your dashboard content here -->
-     <div class="blog-posts">
-        {{#each blogPosts}}
-            <div class="blog-post">
-                <h2>{{title}}</h2>
-                <p>{{content}}</p>
-            </div>
-        {{/each}}
+<h1>Welcome to the Dashboard</h1>
+<!-- Add your dashboard content here -->
+<div class="blog-posts">
+  {{#each blogPosts}}
+    <div class="blog-post">
+      <h2>{{title}}</h2>
+      <p>{{content}}</p>
     </div>
-</body>
-</html>
+  {{/each}}
+</div>
