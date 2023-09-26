@@ -3,8 +3,8 @@
 <div class="blog-posts">
   {{#each blogPosts}}
     <div class="blog-post">
-      <h2>{{title}}</h2>
-      <p>{{content}}</p>
+      <h2>{{this.blog_title}}</h2>
+      <p>{{this.blog_text}}</p>
     </div>
   {{/each}}
 </div>
